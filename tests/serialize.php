@@ -1,4 +1,4 @@
 <?php
 
-$a = 372;
+$a = 7;
 echo serialize($a);
