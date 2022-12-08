@@ -1,2 +1,3 @@
 <?php
-echo "asdsd";
+$a = "Hello world";
+echo ">>> $a";
