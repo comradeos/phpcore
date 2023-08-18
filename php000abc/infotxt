@@ -10,3 +10,6 @@ extension=openssl
 
 php composer.phar install
 php composer.phar update
+
+php composer.phar show --installed
+php composer.phar remove pear/mail
