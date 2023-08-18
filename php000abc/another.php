@@ -1,4 +1,18 @@
 <?php
-echo "another1\n";
-echo "another2\n";
-echo "another3\n";
+
+class Person
+{
+    public int $id;
+    public string $name;
+
+    public function __construct(int $id, string $name)
+    {
+            $this->id = $id;
+            $this->name = $name;
+    }
+
+    public function printInfo(): void
+    {
+        echo "<hr>$this->id<hr>$this->name<hr>";
+    }
+}

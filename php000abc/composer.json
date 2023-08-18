@@ -1,0 +1,8 @@
+{
+  "require": {
+    "pear/mail": "1.5.1",
+    "pear/text_password": "1.2.2"
+  }
+}
+
+
