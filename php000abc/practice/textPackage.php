@@ -8,6 +8,6 @@ class TestTextPackage
     public static function Run(): void
     {
         $result = Text_Password::create();
-        print_r($result);
+        print_r("$result\n");
     }
 }
