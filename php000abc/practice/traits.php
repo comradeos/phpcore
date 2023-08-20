@@ -4,11 +4,11 @@ trait MyTrait
 {
     function TraitFunctionA(): void
     {
-        echo "Hello from TraitFunctionA()\r\n";
+        echo "Hello from TraitFunctionA()\n";
     }
     function TraitFunctionB(): void
     {
-        echo "Hello from TraitFunctionB()\r\n";
+        echo "Hello from TraitFunctionB()\n";
     }
 }
 
@@ -18,7 +18,7 @@ class MyClassA
 
     function info(): void
     {
-        echo "MyClassA obj\r\n";
+        echo "MyClassA obj\n";
     }
 }
 
@@ -28,7 +28,7 @@ class MyClassB
 
     function info(): void
     {
-        echo "MyClassB obj\r\n";
+        echo "MyClassB obj\n";
     }
 }
 
