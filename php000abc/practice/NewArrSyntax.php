@@ -1,6 +1,6 @@
 <?php
 
-require_once "tools.php";
+require_once "ToolBox.php";
 class TestNewArrSyntax
 {
     public static function Run(): void
