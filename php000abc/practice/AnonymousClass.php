@@ -20,5 +20,16 @@ class TestAnonymousClass
 
         echo $a::$id . "\n";
         echo $a::$name . "\n";
+
+        $name = "Iaroslav Os";
+        $email = "iaroslavos@gmail.com";
+
+        $user = compact(
+            'name',
+            'email',
+        );
+
+        echo $user["name"] . "\n";
+        echo $user["email"] . "\n";
     }
 }
