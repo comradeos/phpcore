@@ -8,86 +8,52 @@
 
 // Пример использования паттерна factory method
 
-interface Button {
-    public function onClick();
-    public function render();
+interface IShape {
+    public function area();
 }
 
-class HtmlButton implements Button {
-    public function onClick() {
-        echo "HtmlButton onClick...\n";
+class Rectangle implements IShape {
+    private $width;
+    private $height;
+
+    public function __construct(int $width, int $height) {
+        $this->width = $width;
+        $this->height = $height;
     }
 
-    public function render() {
-        echo "HtmlButton render...\n";
-    }
-}
-
-class WindowshButton implements Button {
-    public function onClick() {
-        echo "WindowshButton onClick...\n";
-    }
-
-    public function render() {
-        echo "WindowshButton render...\n";
+    public function area() {
+        return $this->width * $this->height;
     }
 }
 
-class MacOsButton implements Button {
-    public function onClick() {
-        echo "MacOsButton onClick...\n";
+class Circle implements IShape {
+    private $radius;
+
+    public function __construct(int $radius) {
+        $this->radius = $radius;
     }
 
-    public function render() {
-        echo "MacOsButton render...\n";
-    }
-}
-
-interface Dialog {
-    public function render();
-    public function createButton();
-}
-
-class HtmlDialog implements Dialog {
-    public function render() {
-        $button = $this->createButton();
-        $button->render();
-    }
-
-    public function createButton() {
-        return new HtmlButton();
+    public function area() {
+        return $this->radius * $this->radius * pi();
     }
 }
 
-class WindowsDialog implements Dialog {
-    public function render() {
-        echo "WindowsDialog render...\n";
-    }
+interface IShapeFactory {
+    public function createShape();
+}
 
-    public function createButton() {
-        return new WindowshButton();
+class RectangleFactory implements IShapeFactory {
+    public function createShape() {
+        return new Rectangle(10, 20);
     }
 }
 
-class MacOsDialog implements Dialog {
-    public function render() {
-        echo "MacOsDialog render...\n";
-    }
-
-    public function createButton() {
-        return new MacOsButton();
+class CircleFactory implements IShapeFactory {
+    public function createShape() {
+        return new Circle(10);
     }
 }
 
-class Application {
-    public $dialog;
-
-    public function __construct(Dialog $dialog) {
-        $this->dialog = $dialog;
-    }
-}
-
-$application = new Application(new MacOsDialog());
-$application->dialog->createButton()->onClick();
-
-
+$factory = new RectangleFactory();
+$rectangle = $factory->createShape();
+echo "Rectangle area: ". $rectangle->area() ."\n";
