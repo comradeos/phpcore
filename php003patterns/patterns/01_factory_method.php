@@ -57,3 +57,6 @@ class CircleFactory implements IShapeFactory {
 $factory = new RectangleFactory();
 $rectangle = $factory->createShape();
 echo "Rectangle area: ". $rectangle->area() ."\n";
+
+
+// https://www.youtube.com/watch?v=fudZFG-Cm0Y
