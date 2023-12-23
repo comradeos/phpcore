@@ -6,48 +6,42 @@
  * не привязываясь к конкретным классам создаваемых объектов.
  */
 
- interface IDocument {
-    public function getName();
- }
+ interface Button {
+    public function render();
+}
 
-class TextDocument implements IDocument {
-    public function getName() {
-        return 'TextDocument';
+class WindowsButton implements Button {
+    public function render() {
+        return "Windows Button\n";
     }
 }
 
-class GraphicDocument implements IDocument {
-    public function getName() {
-        return 'GraphicDocument';
+class MacButton implements Button {
+    public function render() {
+        return "Mac Button\n";
     }
 }
 
-interface IDocumentFactory {
-    public function createTextDocument();
-    public function createGraphicDocument();
+interface GUIFactory {
+    public function createButton();
 }
 
-class TextDocumentFactory implements IDocumentFactory {
-    public function createTextDocument() {
-        return new TextDocument();
-    }
-
-    public function createGraphicDocument() {
-        throw new Exception('To create graphic documents use GraphicDocumentFactory!');
+class WindowsFactory implements GUIFactory {
+    public function createButton() {
+        return new WindowsButton();
     }
 }
 
-class GraphicDocumentFactory implements IDocumentFactory {
-    public function createTextDocument() {
-        throw new Exception('To create text documents use TextDocumentFactory!');
-    }
-
-    public function createGraphicDocument() {
-        return new GraphicDocument();
+class MacFactory implements GUIFactory {
+    public function createButton() {
+        return new MacButton();
     }
 }
 
-$factory = new TextDocumentFactory();
-$document = $factory->createGraphicDocument();
-echo $document->getName(); // TextDocument
- 
+function clientCode(GUIFactory $factory) {
+    $button = $factory->createButton();
+    echo $button->render();
+}
+
+clientCode(new WindowsFactory()); // Outputs: Windows Button
+clientCode(new MacFactory()); // Outputs: Mac Button
