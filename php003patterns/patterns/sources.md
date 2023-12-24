@@ -1,6 +1,6 @@
 00. [Каталог паттернов](https://refactoring.guru/ru/design-patterns/catalog)
 01. [- Фабричный метод](https://refactoring.guru/ru/design-patterns/factory-method)
-02. [Абстрактная фабрика](https://refactoring.guru/ru/design-patterns/abstract-factory)
+02. [- Абстрактная фабрика](https://refactoring.guru/ru/design-patterns/abstract-factory)
 03. [Адаптер](https://refactoring.guru/ru/design-patterns/adapter)
 04. [Мост](https://refactoring.guru/ru/design-patterns/bridge)
 05. [Цепочка обязанностей](https://refactoring.guru/ru/design-patterns/chain-of-responsibility)
