@@ -1,32 +1,34 @@
 <?php
 
 /**
- * Адаптер — это структурный паттерн проектирования, \
+ * Адаптер — это структурный паттерн проектирования,
  * который позволяет объектам с несовместимыми интерфейсами работать вместе.
  */
- 
-interface IPayment {
-    public function pay($amount);
- }
 
-class PayPal {
-    public function sent($amount) {
-        echo "Paying via PayPal: " . $amount;
+//  
+
+interface IRecord {
+    public function record();
+}
+
+class Microfone {
+    public function makeRecord() {
+        echo "Recording with microphne...\n";
     }
 }
 
-class PayPalAdapter implements IPayment {
-    private $paypal;
+class MicrophoneAdapter implements IRecord {
+    private $microfone;
 
-    public function __construct(PayPal $paypal) {
-        $this->paypal = $paypal;
+    public function __construct(Microfone $microfone) {
+        $this->microfone = $microfone;
     }
 
-    public function pay($amount) {
-        $this->paypal->sent($amount);
+    public function record() {
+        $this->microfone->makeRecord();
     }
 }
 
-$payPal = new PayPal();
-$payPalAdapter = new PayPalAdapter($payPal);
-$payPalAdapter->pay(100); // Outputs: Paying via PayPal: 100
+$mic = new Microfone();
+$adapter = new MicrophoneAdapter($mic);
+$adapter->record(); // Outputs: Recording with microphne...
