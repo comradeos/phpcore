@@ -1,0 +1,5 @@
+php .\composer.phar create-project codeigniter4/appstarter my-project
+
+ini:
+extension=intl
+extension=mbstring
