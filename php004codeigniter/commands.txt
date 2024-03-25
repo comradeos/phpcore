@@ -3,3 +3,7 @@ php .\composer.phar create-project codeigniter4/appstarter my-project
 ini:
 extension=intl
 extension=mbstring
+
+
+
+https://www.youtube.com/watch?v=UqSa7JofzwU&list=PLMB6wLyKp7lVhP9tA-ws317TdB3NITiyU
