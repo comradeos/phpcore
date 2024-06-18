@@ -1,0 +1,8 @@
+{
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "require": {
+        "phpoffice/phpword": "^1.2"
+    }
+}
