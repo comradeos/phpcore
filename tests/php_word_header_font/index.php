@@ -5,14 +5,11 @@ use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\SimpleType\Jc;
 use PhpOffice\PhpWord\Element\Field;
 
-// Создание нового документа
 $phpWord = new PhpWord();
 
-// Добавление раздела
 $section = $phpWord->addSection();
 
 
-// Определение стиля шрифта
 $fontStyle = [
     'name' => 'Times New Roman',
     'size' => 12,
@@ -26,7 +23,7 @@ $paragraphStyle = [
 ];
 
 $header = $section->addHeader();    
-$header->addPreserveText('{PAGE}', $fontStyle, $paragraphStyle);
+$header->addPreserveText('{PAGE} of {NUMPAGES} aaaaaa', $fontStyle, $paragraphStyle);
 
 $writer = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
 $writer->save(__DIR__ . '/simpleDocument.docx');
